@@ -24,6 +24,7 @@ module "eks" {
   enable_app_load_balancer  = var.enable_app_load_balancer
   enable_cluster_autoscaler = var.enable_cluster_autoscaler
   enable_istio              = var.enable_istio
+  istio_gateway_name        = var.istio_gateway_name
 
   cluster_endpoint_public_access       = var.cluster_endpoint_public_access
   cluster_endpoint_public_access_cidrs = var.cluster_endpoint_public_access_cidrs

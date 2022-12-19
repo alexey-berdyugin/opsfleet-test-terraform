@@ -86,3 +86,13 @@ resource "kubectl_manifest" "enforce_mtls_on_namespace" {
   override_namespace  = kubernetes_namespace.mtls-enforced[0].metadata.0.name
   yaml_body           = element(data.kubectl_path_documents.mtls-enforce.documents, count.index)
 }
+
+resource "kubectl_manifest" "istio_gateway" {
+  count       = var.enable_istio == true && var.create_mtls_namespace == true && var.istio_gateway_name != "" ? 1 : 0
+  depends_on  = [helm_release.istiod, kubernetes_namespace.mtls-enforced]
+  override_namespace  = kubernetes_namespace.mtls-enforced[0].metadata.0.name
+  yaml_body           = templatefile("${path.module}/templates/istio-gateway.yaml.tpl",
+    {
+      gateway_name  = var.istio_gateway_name
+    })
+}

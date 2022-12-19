@@ -15,6 +15,7 @@ enable_app_load_balancer  = false
 ebs-csi_addon_enabled     = false
 coredns_addon_enabled     = true
 enable_istio              = true
+istio_gateway_name        = "mtld-gateway"
 
 map_roles = [{
   rolearn   = "arn:aws:iam::841716521361:role/aws-reserved/sso.amazonaws.com/us-east-1/AWSReservedSSO_llnw-sandbox-dev-eks-admin_65f693ecd5e7b0e5"

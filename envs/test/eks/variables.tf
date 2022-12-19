@@ -44,6 +44,7 @@ variable "ebs-csi_addon_enabled" {
 variable "enable_app_load_balancer" {}
 variable "enable_cluster_autoscaler" {}
 variable "enable_istio" {}
+variable "istio_gateway_name" {}
 
 variable "map_roles" {
   type = list(object({

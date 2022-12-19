@@ -273,8 +273,14 @@ variable "enable_istio" {
 
 variable "istio_enableAutoMtls" {
   description = "Istio: enable automtls in global mesh config"
-  type = string
-  default = "true"
+  type        = string
+  default     = "true"
+}
+
+variable "istio_gateway_name" {
+  description = "Istio: deploy ingressgateway with Name:"
+  type        = string
+  default     = ""
 }
 
 variable "create_mtls_namespace" {
